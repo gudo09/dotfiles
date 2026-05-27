@@ -1,21 +1,42 @@
-import { $, fs } from "zx";
+import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { execSync } from "node:child_process";
+import path from "node:path";
 
-const NVIM_PATH = `${process.env.HOME}/.config/nvim`;
+const HOME = process.env.HOME!;
+const DOTFILES_NVIM = path.join(
+  HOME,
+  "dotfiles",
+  "nvim",
+  ".config",
+  "nvim"
+);
 
 export async function setupLazyVim() {
-  // verificar si ya existe
-  if (await fs.exists(NVIM_PATH)) {
-    console.log("Neovim config ya existe, salteando LazyVim");
+  if (existsSync(DOTFILES_NVIM)) {
+    console.log("LazyVim ya existe en dotfiles");
     return;
   }
 
-  // clonar starter
-  await $`
-    git clone https://github.com/LazyVim/starter ${NVIM_PATH}
-  `;
+  await fs.mkdir(
+    path.join(HOME, "dotfiles", "nvim", ".config"),
+    { recursive: true }
+  );
 
-  // eliminar .git
-  await fs.remove(`${NVIM_PATH}/.git`);
+  execSync(
+    `git clone https://github.com/LazyVim/starter ${DOTFILES_NVIM}`,
+    {
+      stdio: "inherit",
+    }
+  );
 
-  console.log("LazyVim instalado");
+  await fs.rm(
+    path.join(DOTFILES_NVIM, ".git"),
+    {
+      recursive: true,
+      force: true,
+    }
+  );
+
+  console.log("LazyVim instalado en dotfiles");
 }

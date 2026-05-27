@@ -5,17 +5,22 @@ const packages = [
   "fish",
   "neovim",
   "git",
+  "lazygit",
   "fzf",
   "ripgrep",
   "fd",
   "curl",
   "unzip",
   "tree-sitter-cli",
+  "gcc",
+  "ttf-jetbrains-mono-nerd",
   //"kitty",
   //"fastfetch"
 ];
 
-execSync(
-  `sudo pacman -S --needed ${packages.join(" ")}`,
-  { stdio: "inherit" }
-);
+export async function installPackages() {
+  execSync(
+    `sudo pacman -S --needed ${packages.join(" ")}`,
+    { stdio: "inherit" }
+  );
+}
