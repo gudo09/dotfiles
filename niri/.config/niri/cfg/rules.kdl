@@ -7,6 +7,12 @@
     window-rule {
         match app-id=r#"(google-chrome|firefox)"#
         default-column-width {}
+        open-on-workspace "browser"
+    }
+
+    window-rule {
+      match app-id=r#"(Alacritty)"#
+      open-on-workspace "coding"
     }
 
      // if you use steam you will probably like these

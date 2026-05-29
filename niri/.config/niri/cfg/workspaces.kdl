@@ -1,0 +1,7 @@
+workspace "browser"
+
+workspace "coding"
+
+workspace "chat"
+
+workspace "music"
