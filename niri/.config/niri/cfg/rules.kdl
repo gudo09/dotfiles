@@ -1,12 +1,13 @@
     window-rule {
-        geometry-corner-radius 20 // Set every window radius to 20
+        geometry-corner-radius 10 // Set every window radius to 20
         clip-to-geometry true
     }
 
     // apps displayed on 100% column width by default
     window-rule {
         match app-id=r#"(google-chrome|firefox)"#
-        default-column-width {}
+        //default-column-width {}
+        open-maximized true
         open-on-workspace "browser"
     }
 
