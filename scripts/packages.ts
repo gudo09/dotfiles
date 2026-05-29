@@ -14,6 +14,7 @@ const packages = [
   "tree-sitter-cli",
   "gcc",
   "ttf-jetbrains-mono-nerd",
+  "wev",
   //"kitty",
   //"fastfetch"
 ];
