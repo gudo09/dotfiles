@@ -4,5 +4,9 @@ return {
     opts = {
       explorer = { enabled = false },
     },
+    {
+      "akinsho/bufferline.nvim",
+      enabled = false,
+    },
   },
 }
