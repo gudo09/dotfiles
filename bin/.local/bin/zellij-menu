@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+if [ "$#" -gt 0 ]; then
+  exec zellij "$@"
+fi
+
+gum style \
+  --border double \
+  --margin "1 0" \
+  --padding "0 2" \
+  --border-foreground 212 \
+  --foreground 255 \
+  "⚡ ZELLIJ SESSION MANAGER ⚡"
+
+ACTION=$(gum choose \
+  "➕  Crear una nueva sesión" \
+  "📂  Elegir una sesión existente" \
+  "🔄  Recuperar la última sesión" \
+  "❌  Salir")
+
+case "$ACTION" in
+  "➕  Crear una nueva sesión")
+    SESSION_NAME=$(gum input --placeholder "Escribe el nombre..." --header "Nombre de la sesión:")
+    if [ -n "$SESSION_NAME" ]; then
+      exec zellij -s "$SESSION_NAME"
+    fi
+    ;;
+
+  "📂  Elegir una sesión existente")
+    SESSIONS=$(zellij ls 2>/dev/null)
+
+    if [ -z "$SESSIONS" ]; then
+      gum style --foreground 196 "No hay sesiones guardadas o activas."
+      exit 0
+    fi
+
+    SELECTED_SESSION=$(echo "$SESSIONS" | fzf \
+      --height 40% \
+      --reverse \
+      --header="Navega con flechas y presiona Enter:" \
+      --color="border:#8700ff,header:#5f00ff,pointer:#ff007f")
+
+    if [ -n "$SELECTED_SESSION" ]; then
+      CLEAN_NAME=$(echo "$SELECTED_SESSION" | awk '{print $1}' | sed -E 's/\x1B\[[0-9;]*[mK]//g')
+      exec zellij attach "$CLEAN_NAME"
+    fi
+    ;;
+
+  "🔄  Recuperar la última sesión")
+    exec zellij attach
+    ;;
+
+  *)
+    exit 0
+    ;;
+esac
