@@ -6,3 +6,7 @@ zoxide init fish | source
 #function fish_greeting
 #    # smth smth
 #end
+
+# Aliases for llama.cpp
+alias llama-server="$HOME/llama.cpp/build/bin/llama-server --models-preset ~/AI/Models/models.ini"
+
