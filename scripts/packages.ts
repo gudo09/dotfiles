@@ -11,6 +11,7 @@ const packages = [
   "fzf",
   "gcc",
   "git",
+  "gum",
   "lazydocker",
   "lazygit",
   "mesa",
