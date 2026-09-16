@@ -1,0 +1,408 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+[░▒▓](os_bg_color)\
+$os\
+[](bg:directory_bg_color fg:os_bg_color)\
+$username\
+$directory\
+[](fg:directory_bg_color bg:git_bg_color)\
+$git_branch\
+$git_status\
+[](fg:git_bg_color bg:lang_bg_color)\
+$nodejs\
+$bun\
+$rust\
+$golang\
+$php\
+[](fg:lang_bg_color bg:time_bg_color)\
+$time\
+[ ](fg:time_bg_color)\
+$line_break\
+$character"""
+
+palette = "default"
+
+[palettes.default]
+os_bg_color = "#a3aed2"
+os_logo_color = "#090c0c"
+directory_bg_color = "#769ff0"
+directory_text_color = "#e3e5e5"
+git_bg_color = "#394260"
+git_text_color = "#769ff0"
+lang_bg_color = "#212736"
+lang_text_color = "#769ff0"
+time_bg_color = "#1d2230"
+time_text_color = "#a0a9cb"
+
+[aws]
+symbol = " "
+
+[azure]
+symbol = " "
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+unknown_symbol = "󰂑 "
+empty_symbol = "󰂎 "
+
+[buf]
+symbol = " "
+
+[bun]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[c]
+symbol = " "
+
+[cpp]
+symbol = " "
+
+[character]
+success_symbol = "[ ](bold green)"
+error_symbol = "[ ](bold red)"
+
+[cmake]
+symbol = " "
+
+[cobol]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[container]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[deno]
+symbol = " "
+
+[direnv]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+format = "[ $path ]($style)"
+style = "fg:directory_text_color bg:directory_bg_color"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Documentos" = "󰈙 "
+"Downloads" = " "
+"Descargas" = " "
+"Music" = " "
+"Música" = " "
+"Pictures" = " "
+"Imágenes" = " "
+"dotfiles" = " files"
+"home" = " "
+"~" = " "
+
+[docker_context]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[dotnet]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[erlang]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fortran]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = "󱇶 "
+
+[gleam]
+symbol = " "
+
+[git_branch]
+symbol = " "
+format = '[[ $symbol $branch (:$remote_branch)](fg:git_text_color bg:git_bg_color)]($style)'
+style = "bg:git_bg_color"
+
+[git_commit]
+tag_symbol = '  '
+disabled = true
+
+[git_status]
+style = "bg:git_bg_color"
+format = '[[($all_status$ahead_behind )](fg:git_text_color bg:git_bg_color)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[gradle]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[helm]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[kubernetes]
+symbol = "󱃾 "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[lua]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[maven]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[meson]
+symbol = "󰔷 "
+
+[mojo]
+symbol = "󰈸 "
+
+[nats]
+symbol = " "
+
+[netns]
+symbol = "󰛳 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[ocaml]
+symbol = " "
+
+[odin]
+symbol = "󰟢 "
+
+[opa]
+symbol = " "
+
+[openstack]
+symbol = " "
+
+[os]
+format = "[ $symbol]($style)"
+style = "fg:os_logo_color bg:os_bg_color" 
+disabled = false
+
+[os.symbols]
+AIX = " "
+AlmaLinux = " "
+Alpaquita = " "
+Alpine = " "
+ALTLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+Bluefin = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = " "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = " "
+InstantOS = " "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = " "
+OpenCloudOS = " "
+openEuler = " "
+openSUSE = " "
+OracleLinux = "󰺡 "
+PikaOS = " "
+Pop = " "
+Raspbian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Redox = "󰀘 "
+RockyLinux = " "
+Solus = " "
+SUSE = " "
+Ubuntu = " "
+Ultramarine = " "
+Unknown = " "
+Uos = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+
+[pulumi]
+symbol = " "
+
+[purescript]
+symbol = " "
+
+[python]
+symbol = " "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[raku]
+symbol = "󱖊 "
+
+[red]
+symbol = "󱍼 "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = "󱘗 "
+style = "bg:lang_bg_color"
+format = '[[ $symbol ($version) ](fg:lang_text_color bg:lang_bg_color)]($style)'
+
+[scala]
+symbol = " "
+
+[shlvl]
+symbol = "󰹍 "
+
+[singularity]
+symbol = " "
+
+[solidity]
+symbol = " "
+
+[spack]
+symbol = " "
+
+[status]
+symbol = " "
+
+[sudo]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[terraform]
+symbol = " "
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:time_bg_color"
+format = '[[  $time ](fg:time_text_color bg:time_bg_color)]($style)'
+
+[vlang]
+symbol = " "
+
+[typst]
+symbol = " "
+
+[vagrant]
+symbol = " "
+
+[xmake]
+symbol = " "
+
+[zig]
+symbol = " "
