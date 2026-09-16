@@ -1,8 +1,23 @@
 prefer-no-csd
 window-rule {
-    geometry-corner-radius 10
- // Set every window radius to 20    clip-to-geometry true
+    geometry-corner-radius 0
+ // Set every window radius to 20
+    clip-to-geometry true
 }
+
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
+
 // apps displayed on 100% column width by default
 window-rule {
     match app-id="(google-chrome|firefox)"
@@ -10,10 +25,12 @@ window-rule {
     open-maximized true
     open-on-workspace "browser"
 }
+
 window-rule {
     match app-id="(Alacritty)"
     open-on-workspace "coding"
 }
+
 // if you use steam you will probably like these
 window-rule {
     match app-id="steam"

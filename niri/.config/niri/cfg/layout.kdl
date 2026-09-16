@@ -1,15 +1,25 @@
 layout {
-  gaps 16
+  gaps 5
   center-focused-column "never"
   background-color "transparent"
+
   focus-ring {
-    active-color "#7fc8ff66"
-  }
-  shadow {
     on
+    active-color "#7fc8ff66"
+    width 2
+  }
+
+  border {
+    off
+    width 1
+    active-color "#ffc87f"
+  }
+
+  shadow {
+    off
     color "#FFF59B66"
     inactive-color "#00000000"
-    softness 20
+    softness 1
   }
   preset-column-widths {
     proportion 0.33333
@@ -17,7 +27,10 @@ layout {
     proportion 0.66667
   }
   struts {
-
+    left -2
+    right -2
+    top 32
+    bottom -2
   }
 }
 
